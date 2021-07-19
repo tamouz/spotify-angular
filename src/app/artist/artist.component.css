@@ -1,0 +1,15 @@
+ngb-rating {
+  color: #FFC107;
+  font-size: 2rem;
+}
+
+.myartist{
+  margin: 20px;
+  width: 18rem;
+}
+a{
+  text-decoration: none;color: black;
+}
+.embed-responsive .card-img-top {
+  object-fit: cover;
+}

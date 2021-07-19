@@ -1,0 +1,16 @@
+
+  <input  class="form-control"
+  required
+  [(ngModel)]="name" (keyup)="writeImages()" [ngClass]="{'btnCenter':searched==false}"  placeholder="Search for an artist... ">
+
+
+
+<div class="card-group cont">
+  <div *ngFor="let item of artists">
+    <app-artist *ngIf="item" [artist]='item'></app-artist>
+  </div>
+</div>
+
+
+
+

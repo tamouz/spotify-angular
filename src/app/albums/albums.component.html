@@ -1,0 +1,17 @@
+<div  class="card  myalbum" >
+  <img src="{{album.images[0].url}}" class="card-img-top img-fluid" alt="...">
+
+  <div class="card-body mb-auto" style="height: fit-content;">
+    <h5 class="card-title mb-1">{{album.name}}</h5>
+    <div class="card-sub-title text-muted">
+    <p *ngFor="let artist of album.artists" class="m-0">{{artist.name}} </p>
+    </div>
+    <p class="card-sub-title mt-4 mb-0 text-muted">{{album.release_date|date}}</p>
+    <p class="card-sub-title mb-1  text-muted">{{album.total_tracks}} tracks</p>
+  </div>
+  <div class="card-footer text-muted text-center">
+    <a href="{{album.external_urls.spotify}}">
+      Preview on Spotify
+    </a>
+  </div>
+</div>

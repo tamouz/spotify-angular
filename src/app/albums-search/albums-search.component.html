@@ -1,0 +1,13 @@
+<div class="container" style="margin: 18px;">
+<p class="fs-2">
+  {{name}}
+</p>
+<p class="fs3">Albums</p>
+
+</div>
+<div class="card-group cont">
+  <div *ngFor="let item of albums">
+    <app-albums *ngIf="item" [album]='item'></app-albums>
+
+  </div>
+  </div>

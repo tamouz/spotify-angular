@@ -1,0 +1,14 @@
+
+    <a [routerLink]="['../albums/',artist.id,artist.name]" >
+  <div class="card myartist ">
+    <div class="embed-responsive embed-responsive-1by1">
+      <img  src="{{imageSrc}}" alt="Photo of {{artist.name}}" class="card-img-top img-fluid embed-responsive-item ">
+    </div>
+    <div class="card-body"  style="height: fit-content;">
+      <p class="card-title">{{artist.name}}</p>
+      <p class="card-subtitle mb-2 text-muted">{{artist.followers.total|number}} followers</p>
+      <ngb-rating [max]="5" [(rate)]="starRating" [rate]="rating" [readonly]="true"></ngb-rating>
+    </div>
+  </div>
+</a>
+

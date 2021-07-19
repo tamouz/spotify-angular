@@ -1,0 +1,12 @@
+.myimg{
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+.myalbum{
+  margin: 20px;
+  width: 18rem;
+}
+a{
+  text-decoration: none;color: black;
+}
