@@ -49,17 +49,17 @@ finaly the albums search and the albums component
 ## Time needed to finish 
 20 hours total
 
-	6 hours to understand how should I get the token and how the api work 
+6 hours to understand how should I get the token and how the api work 
 
-  6 hours needed for html and css 
-	
-  3 hours for developing the services properly
-	
-  30 min needed to get the stars working properly 
-	
-  2 hours for routing
-	
-  1.5 hours where spent for making sure that everthing works fine 
+7 hours needed for html and css 
+
+3 hours for developing the services properly
+
+30 min needed to get the stars working properly 
+
+2 hours for routing
+
+1.5 hours where spent for making sure that everthing works fine 
 	
 I wasn't able to work friday and sunday 
 
