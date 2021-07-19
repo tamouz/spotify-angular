@@ -42,7 +42,9 @@ artist search and artist component
 finaly the albums search and the albums component
 ## Services
 1.check if loged in which is used by token gaurd to check whether the application has a token from the user 
+
 2.get token which returns the token and gets the token from login there are many ways to get the token
+
 3.spotify api caller which is responsible for calling the spotify api and fetching json data
 ## Time needed to finish 
 20 hours total
