@@ -19,9 +19,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# spotify-angular
 
-#How the application works
+
+## How the application works
 This project uses angular 12.1.1 and bootstrap 
 first the project asks the user to login via a third party spotify website then takes the token from the url 
 the user can search for an artist name 
@@ -30,15 +30,15 @@ json data conating the artists name etc
 the user can click on any artist to see his albums 
 the application will then navigate him to album search pages
 and takes the artist id and name from the url.
-#Components  
+## Components  
 This application consists of 6 components and 3 services 
 the app component , Login component which handles the way the application gets the user token 
 ,artist search and artist component finaly the albums search and the albums component
-#Services
+## Services
 1.check if loged in which is used by token gaurd to check whether the application has a token from the user 
 2.get token which returns the token and gets the token from login there are many ways to get the token
 3.spotify api caller which is responsible for calling the spotify api and fetching json data
-#Time needed to finish 
+## Time needed to finish 
 20 hours total
 	6 hours to understand how should I get the token and how the api work 
 	6 hours needed for html and css 
