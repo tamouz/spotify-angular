@@ -1,7 +1,9 @@
 
   <input  class="form-control"
   required
-  [(ngModel)]="name" (keyup)="writeImages()" [ngClass]="{'btnCenter':searched==false}"  placeholder="Search for an artist... ">
+  [(ngModel)]="name"  [ngClass]="{'btnCenter':searched==false}"  placeholder="Search for an artist... "
+  #ArtistSearchInput
+  >
 
 
 

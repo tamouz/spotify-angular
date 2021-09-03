@@ -1,7 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router,ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { throwError } from 'rxjs';
+import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
+import {debounceTime,} from "rxjs/operators";
+import { fromEvent, Subscription, throwError } from 'rxjs';
 import { SpotfiyApiCaller } from '../services/spotify-api-caller.service';
 import { faSearchengin } from '@fortawesome/free-brands-svg-icons';
 @Component({
@@ -10,6 +11,15 @@ import { faSearchengin } from '@fortawesome/free-brands-svg-icons';
   styleUrls: ['./artist-search.component.css']
 })
 export class ArtistSearchComponent implements OnInit {
+
+
+  @ViewChild('ArtistSearchInput', { static: true }) ArtistSearchInput: ElementRef|any;
+  artist:string="";
+  faSearchengin=faSearchengin;
+  name:string="";
+  searched:Boolean=false;
+  //searching apifor artist functions
+  artists:any = [];
   constructor(private _getArtist:SpotfiyApiCaller,private _route:Router) { }
   ngOnInit(): void {
     this.artist=this._getArtist.getHistory();
@@ -18,13 +28,8 @@ export class ArtistSearchComponent implements OnInit {
       this.name = this.artist;
       this.writeImages();
     }
+    fromEvent(this.ArtistSearchInput.nativeElement,'keyup').pipe(debounceTime(1000)).subscribe(()=>{this.writeImages()});
   }
-  artist:string="";
-  faSearchengin=faSearchengin;
-  name:string="";
-  searched:Boolean=false;
-  //searching apifor artist functions
-  artists:any = [];
   handleSuccess(data:any){
     if(data != null && data != undefined){
       console.log(data);
@@ -51,14 +56,13 @@ export class ArtistSearchComponent implements OnInit {
   }
 
   //get json data using service
-  writeImages(){
+  public writeImages(){
 
     this.name=this.name.trim();
     if(this.name==""){
       return;
     }
-    return this._getArtist.getArtisits(this.name)
-    .subscribe(
+    return this._getArtist.getArtisits(this.name).subscribe(
       data =>this.handleSuccess(data),
       error=> this.handleError(error)
     )
