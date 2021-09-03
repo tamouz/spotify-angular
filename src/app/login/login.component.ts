@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   faSpotify=faSpotify;
   constructor(private _Token:GetTokensService,
     private router:Router) { }
-  ngOnInit(): void {
+    ngOnInit(): void {
     this.start();
   }
   start(){
@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
       if (access_token) {
         this._Token.setToken(access_token);
         this.router.navigate(['/artist']);
-      } else {
       }
     }
   }

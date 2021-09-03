@@ -11,6 +11,5 @@ export class tokenGaurdGaurd implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot) {
-      if (this.token.isLoged())
+      if (this.token.isLogged())
       { return true; } this._router.navigate(['']); return false; } }
-

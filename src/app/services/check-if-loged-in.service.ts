@@ -8,7 +8,7 @@ export class CheckIfLogedInService {
 
   constructor(private _token:GetTokensService) { }
 
-  isLoged():boolean{
+  isLogged():boolean{
     if(this._token.getClientToken() == "empty"){
       return false;
     }
