@@ -3,9 +3,6 @@ import { SpotfiyApiCaller } from '../services/spotify-api-caller.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
-
-
 @Component({
   selector: 'app-albums-search',
   templateUrl: './albums-search.component.html',
@@ -15,13 +12,13 @@ export class AlbumsSearchComponent implements OnInit {
   @Input()public name:string="";
   artists:any=[];
   albums:any=[];
-  constructor(private _getAlbums:SpotfiyApiCaller,private route: ActivatedRoute,private _route:Router) { }
   @Input()public artist:string="1aw0Cdl1DIrtUrUA6fGbAR";
+
+  constructor(private _getAlbums:SpotfiyApiCaller,private route: ActivatedRoute,private _route:Router) { }
   ngOnInit(): void {
     this.name=(this.route.snapshot.paramMap.get('name')!=null)?this.route.snapshot.paramMap.get("name")!:'';
     this.artist=(this.route.snapshot.paramMap.get('artist')!=null)?this.route.snapshot.paramMap.get("artist")!:'1aw0Cdl1DIrtUrUA6fGbAR';
     this.getAlbums();
-    this._getAlbums.setHistory(this.name);
   }
   getAlbums(){
     return this._getAlbums.getAlbums(this.artist)

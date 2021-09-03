@@ -36,6 +36,7 @@ export class ArtistSearchComponent implements OnInit {
       this.searched=true;
       this.artists = data.artists.items;
     }
+    this._getArtist.setHistory(this.name);
     console.log(this.artists);
   }
   private handleError(error: HttpErrorResponse) {
