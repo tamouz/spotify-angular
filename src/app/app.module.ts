@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ArtistSearchComponent } from './artist-search/artist-search.component';
-import { ArtistComponent } from './artist/artist.component';
+import { ArtistSearchComponent } from './Pages/artist-search/artist-search.component';
+import { ArtistComponent } from './Components/artist/artist.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -11,10 +11,11 @@ import { NgbRatingModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { AlbumsComponent } from './albums/albums.component';
-import { AlbumsSearchComponent } from './albums-search/albums-search.component'
-import {tokenGaurdGaurd} from './token-gaurd.guard';
+import { LoginComponent } from './Pages/login/login.component';
+import { AlbumsComponent } from './Components/albums/albums.component';
+import { AlbumsSearchComponent } from './Pages/albums-search/albums-search.component'
+import {tokenGaurdGaurd} from './Guards/token-gaurd.guard';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
     ArtistComponent,
     AlbumsComponent,
     AlbumsSearchComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,HttpClientModule,FontAwesomeModule,

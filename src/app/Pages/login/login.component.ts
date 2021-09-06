@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetTokensService } from '../services/get-tokens.service';
+import { GetTokensService } from '../../services/get-tokens.service';
 import { Router } from '@angular/router';
 import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 @Component({

@@ -3,7 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
 import {debounceTime,} from "rxjs/operators";
 import { fromEvent, Subscription, throwError } from 'rxjs';
-import { SpotfiyApiCaller } from '../services/spotify-api-caller.service';
+import { SpotfiyApiCaller } from '../../services/spotify-api-caller.service';
 import { faSearchengin } from '@fortawesome/free-brands-svg-icons';
 @Component({
   selector: 'app-artist-search',

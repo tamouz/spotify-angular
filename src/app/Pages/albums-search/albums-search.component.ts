@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SpotfiyApiCaller } from '../services/spotify-api-caller.service';
+import { SpotfiyApiCaller } from '../../services/spotify-api-caller.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { CheckIfLogedInService } from './services/check-if-loged-in.service';
+import { CheckIfLogedInService } from '../services/check-if-loged-in.service';
 @Injectable({
   providedIn: 'root'
 })
