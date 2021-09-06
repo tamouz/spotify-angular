@@ -16,15 +16,8 @@ import { AlbumsComponent } from './Components/albums/albums.component';
 import { AlbumsSearchComponent } from './Pages/albums-search/albums-search.component'
 import {tokenGaurdGaurd} from './Guards/token-gaurd.guard';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { AppRoutingModule } from './app-routing.module';
 
-
-const routes: Routes = [
-  {path:'',component:LoginComponent},
-  {path:'artist',component:ArtistSearchComponent},
-  {path:'artist/:id',component:ArtistSearchComponent},
-  {path:'albums/:artist/:name',component:AlbumsSearchComponent},
-  {path:'**',redirectTo:'',pathMatch:'full'},
-]
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +31,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,HttpClientModule,FontAwesomeModule,
     BrowserAnimationsModule,NgbRatingModule,
-    RouterModule.forRoot(routes),FormsModule,CommonModule, NgbModule
+    AppRoutingModule,FormsModule,CommonModule, NgbModule, AppRoutingModule
   ]
   ,
   providers: [],
