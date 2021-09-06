@@ -20,9 +20,9 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
-  {path:'artist',component:ArtistSearchComponent,canActivate:[tokenGaurdGaurd]},
-  {path:'artist/:id',component:ArtistSearchComponent,canActivate:[tokenGaurdGaurd]},
-  {path:'albums/:artist/:name',component:AlbumsSearchComponent,canActivate:[tokenGaurdGaurd]},
+  {path:'artist',component:ArtistSearchComponent},
+  {path:'artist/:id',component:ArtistSearchComponent},
+  {path:'albums/:artist/:name',component:AlbumsSearchComponent},
   {path:'**',redirectTo:'',pathMatch:'full'},
 ]
 @NgModule({
