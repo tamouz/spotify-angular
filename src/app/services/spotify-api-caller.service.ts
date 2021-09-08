@@ -29,11 +29,5 @@ export class SpotfiyApiCaller {
   getAlbums(name:string){
     return this._http.get(this.albumsUrl + name+this.albumsUrl2,{headers:this.headers});
   }
-  artist:string='';
-  setHistory(str:string){
-    this.artist = str;
-  }
-  getHistory(){
-    return this.artist;
-  }
+
 }

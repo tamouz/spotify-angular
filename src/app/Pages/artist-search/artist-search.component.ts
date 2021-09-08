@@ -1,8 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router,ActivatedRoute } from '@angular/router';
-import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
+import { Component, ViewChild, ElementRef, OnInit, Input, Output } from "@angular/core";
+import { Location } from '@angular/common';
 import {debounceTime,} from "rxjs/operators";
 import { fromEvent, Subscription, throwError } from 'rxjs';
+
 import { SpotfiyApiCaller } from '../../services/spotify-api-caller.service';
 import { faSearchengin } from '@fortawesome/free-brands-svg-icons';
 @Component({
@@ -14,21 +16,24 @@ export class ArtistSearchComponent implements OnInit {
 
 
   @ViewChild('ArtistSearchInput', { static: true }) ArtistSearchInput: ElementRef|any;
-  artist:string="";
   faSearchengin=faSearchengin;
-  name:string="";
+  @Output()
+  public name:string|null=null;
   searched:Boolean=false;
-  //searching apifor artist functions
   artists:any = [];
-  constructor(private _getArtist:SpotfiyApiCaller,private _route:Router) { }
+
+  //searching apifor artist functions
+  constructor(private _getArtist:SpotfiyApiCaller,private _route:Router,private route: ActivatedRoute,private location:Location) { }
   ngOnInit(): void {
-    this.artist=this._getArtist.getHistory();
-    if(this.artist != ''){
+    this.start();
+  }
+  start(){
+    this.name=(this.route.snapshot.paramMap.get('id')!=null)?this.route.snapshot.paramMap.get("id")!:'';
+    fromEvent(this.ArtistSearchInput.nativeElement,'keyup').pipe(debounceTime(1000)).subscribe(()=>{this._route.navigate(['/artist', this.name]);this.writeImages()});
+    if(this.name != null && this.name != ''){
       this.searched = true;
-      this.name = this.artist;
       this.writeImages();
     }
-    fromEvent(this.ArtistSearchInput.nativeElement,'keyup').pipe(debounceTime(1000)).subscribe(()=>{this.writeImages()});
   }
   handleSuccess(data:any){
     if(data != null && data != undefined){
@@ -36,7 +41,6 @@ export class ArtistSearchComponent implements OnInit {
       this.searched=true;
       this.artists = data.artists.items;
     }
-    this._getArtist.setHistory(this.name);
     console.log(this.artists);
   }
   private handleError(error: HttpErrorResponse) {
@@ -55,14 +59,9 @@ export class ArtistSearchComponent implements OnInit {
     return throwError(
       'Something bad happened; please try again later.');
   }
-
   //get json data using service
   public writeImages(){
-
-    this.name=this.name.trim();
-    if(this.name==""){
-      return;
-    }
+    this.name=this.name!.trim();
     return this._getArtist.getArtisits(this.name).subscribe(
       data =>this.handleSuccess(data),
       error=> this.handleError(error)
